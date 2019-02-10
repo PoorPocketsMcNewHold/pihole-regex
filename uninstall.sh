@@ -3,12 +3,12 @@
 
 # Set regex outputs
 file_pihole_regex="/etc/pihole/regex.list"
-file_mmotti_regex="/etc/pihole/mmotti-regex.list"
+file_mmotti_regex="/etc/pihole/mmottiandicedcomputer-regex.list"
 
 # Restore config prior to previous install
 # Keep entries only unique to pihole regex
 if [ -s "$file_pihole_regex" ] && [ -s "$file_mmotti_regex" ]; then
-	echo "[i] Removing mmotti's regex.list from a previous install"
+	echo "[i] Removing mmotti and icedcomputer regex.list from a previous install"
 	comm -23 <(sort $file_pihole_regex) <(sort $file_mmotti_regex) | sudo tee $file_pihole_regex > /dev/null
 	sudo rm -f $file_mmotti_regex
 else
